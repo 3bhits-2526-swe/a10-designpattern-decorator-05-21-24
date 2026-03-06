@@ -1,25 +1,20 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 public class MoveBetweenPoints : MonoBehaviour
 {
-    [Header("Points")]
     [SerializeField] private Transform pointA;
     [SerializeField] private Transform pointB;
-
-    [Header("Movement")]
     [SerializeField] private float speed = 2f;
     [SerializeField] private float reachDistance = 0.05f;
 
-    [Header("Unschoenes Zusatzverhalten")]
-    [SerializeField] private bool changeColorOnBounce = true;
-
     private Transform currentTarget;
-    private SpriteRenderer spriteRenderer;
+    private IMovementDecorator[] decorators;
 
     private void Start()
     {
         currentTarget = pointB;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        decorators = GetComponents<IMovementDecorator>();
     }
 
     private void Update()
@@ -28,10 +23,8 @@ public class MoveBetweenPoints : MonoBehaviour
 
         if (Vector3.Distance(transform.position, currentTarget.position) <= reachDistance)
         {
-            if (changeColorOnBounce && spriteRenderer != null)
-            {
-                spriteRenderer.color = Random.ColorHSV();
-            }
+            foreach (var decorator in decorators)
+                decorator.OnReachedTarget();
 
             currentTarget = currentTarget == pointA ? pointB : pointA;
         }
