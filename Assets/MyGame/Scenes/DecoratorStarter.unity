@@ -729,6 +729,8 @@ GameObject:
   - component: {fileID: 1467152875}
   - component: {fileID: 1467152874}
   - component: {fileID: 1467152876}
+  - component: {fileID: 1467152877}
+  - component: {fileID: 1467152878}
   m_Layer: 0
   m_Name: MovingObj
   m_TagString: Untagged
@@ -823,7 +825,33 @@ MonoBehaviour:
   pointB: {fileID: 1417596474}
   speed: 2
   reachDistance: 0.05
-  changeColorOnBounce: 1
+--- !u!114 &1467152877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467152873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2f08b916ab0baa41bee2f7ed592adc4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1467152878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1467152873}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9d3f14ff58ebe5d48950b25c65d64ccb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spinSpeedX: 900
+  spinSpeedY: 1800
+  spinSpeedZ: 450
 --- !u!1 &1983930320
 GameObject:
   m_ObjectHideFlags: 0
